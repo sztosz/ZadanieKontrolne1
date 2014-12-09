@@ -5,11 +5,12 @@ package com.sztosz.commandLine1;
  */
 public class Square extends Figure2D implements GeometricFigure2D {
 
-    public Square(Double height, Double baseWidth) {
+    public Square(Double height, Double baseWidth) throws ArithmeticException {
         super(height, baseWidth);
-//        if (height != baseWidth) {
-//            throw new ArithmeticException("Height is not equal to width of base");
+        if (!height.equals(baseWidth)) {
+            throw new ArithmeticException("Height is not equal to width of base. The program should exit now.");
 //        }
+        }
     }
 
 
