@@ -15,7 +15,6 @@ public class Controller {
     private Scanner input = new Scanner(System.in);
 
     private Map<String, Class<? extends Figure2D>> FigureTypes = new HashMap<String, Class<? extends Figure2D>>();
-    private Class<? extends Figure2D> figure_class;
     private InnerObject innerObject;
 
     public Controller() throws NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -90,7 +89,7 @@ public class Controller {
 
     public void getObjectFromClass() throws NoSuchMethodException, IllegalAccessException, InstantiationException {
         try {
-            figure_class = getClassFromUserEntry();
+            Class<? extends Figure2D> figure_class = getClassFromUserEntry();
             Constructor figure_constructor = figure_class.getConstructor(Double.class, Double.class);
             this.innerObject = new InnerObject(
                     figure_constructor.newInstance(getDoubleFromInput("Height"), getDoubleFromInput("width of base")),
