@@ -74,17 +74,18 @@ public class Controller {
 
 
     private Class<? extends Figure2D> getClassFromUserEntry() {
-        String input_string;
+        String input_string = null;
 
         boolean continue_loop = true;
         while (continue_loop) {
             getFigureChoicesFromInput();
             input_string = input.nextLine();
             if (FigureTypes.containsKey(input_string)) {
-                return FigureTypes.get(input_string);
+                continue_loop = false;
             }
+
         }
-        return null;
+        return FigureTypes.get(input_string);
     }
 
     public void getObjectFromClass() throws NoSuchMethodException, IllegalAccessException, InstantiationException {
